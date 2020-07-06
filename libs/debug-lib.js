@@ -1,8 +1,5 @@
 import AWS from "aws-sdk";
 import util from "util";
-import { log } from "../libs/debug-lib";
-
-log('This stores the message and prints to CloudWatch if Lambda function later throws an exception');
 
 // Log AWS SDK calls
 AWS.config.logger = { log: debug };
