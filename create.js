@@ -10,16 +10,22 @@ export const main = handler(async (event, context) => {
     // - 'userId': user identities are federated through the
     //             Cognito Identity Pool, we will use the identity id
     //             as the user id of the authenticated user
-    // - 'noteId': a unique uuid
+    // - 'itemId': a unique uuid
     // - 'content': parsed from request body
     // - 'attachment': parsed from request body
     // - 'createdAt': current Unix timestamp
     Item: {
       userId: event.requestContext.identity.cognitoIdentityId,
-      noteId: uuid.v1(),
+      itemId: uuid.v1(),
       content: data.content,
       attachment: data.attachment,
-      createdAt: Date.now()
+      createdAt: Date.now(),
+      image: data.imageUrl,
+      description: data.description,
+      price: data.price,
+      units: data.units,
+      dateAdded: data.dateAdded,
+      purcahseDate: data.purchaseDate
     }
   };
 
